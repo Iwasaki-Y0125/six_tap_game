@@ -6,7 +6,11 @@ six_tap_game/
 │   └── index.erb       ← HTML (ゲーム画面)
 ├── public/
 │   └── js/
-│       └── main.js     ← JSファイル（6秒連打）
+│       └── main.js
+│   └── css/
+│       └── style.css
+│   └── image/
+│       └──
 ├── db/
 │   └── development.db  ← SQLiteファイル（まだ空）
 ├── Gemfile
