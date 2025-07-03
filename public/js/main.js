@@ -185,3 +185,24 @@ document.getElementById("retryBtn").addEventListener("click", function () {
 
   readyTime();
 });
+
+// 6.ランキングボタン：ランキング画面に遷移
+document.getElementById("rankingBtn").addEventListener("click", function () {
+  document.getElementById("rendaResult").classList.replace("screen", "hidden"); // 結果画面を非表示
+  document.getElementById("rendaRanking").classList.replace("hidden", "screen"); // ランキング画面を表示
+});
+
+// 7.ランキング画面から戻るボタン：スタート画面に戻る
+document  .getElementById("rankingBackBtn").addEventListener("click", function () {
+  document.getElementById("rendaRanking").classList.replace("screen", "hidden"); // ランキング画面を非表示
+  document.getElementById("rendaResult").classList.replace("hidden", "screen"); // スタート画面を表示
+}
+);
+
+// fetch("/ranking", {
+//   method: "POST",
+//   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+//   body: `player_name=${encodeURIComponent(playerName)}&score=${score}`,
+// }).then(() => {
+//   window.location.href = "/ranking"; // ランキングページへ遷移
+// });
