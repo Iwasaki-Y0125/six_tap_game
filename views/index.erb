@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6秒連打</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+        <section id="rendaTop" class="screen">
+          <div class="rendaBlock">
+            <p id="rendatitle">六秒連打</p>
+            <button id="startBtn">スタート</button>
+          </div>
+        </section>
+
+        <section id="rendaReady" class="hidden">
+          <div class="rendaBlock">
+            <p id="readyMessage">連打開始まで</p>
+            <p id="readyTime">3</p>
+          </div>
+        </section>
+
+        <section id="rendaPlay" class="hidden">
+          <div class="rendaBlock">
+            <p id="playTime">あと 6 秒</p>
+            <p id="playScore">０連打</p>
+            <button id="rendaBtn">連打！</button>
+          </div>
+        </section>
+
+        <section id="rendaEnd" class="hidden">
+          <div class="rendaBlock">
+            <p>終了!</p>
+          </div>
+        </section>
+
+        <section id="rendaResult" class="hidden">
+          <div class="rendaBlock">
+            <p>あなたの連打回数は</p>
+            <p id="resultScore">0連打</p>
+            <img id="rankImg" src="image/E.GIF" alt="結果" />
+            <p id="rank">寝起きのナマケモノ 級</p>
+            <p id="rankMessage">起きただけでエラい</p>
+
+            <button id="retryBtn">リトライ</button><br /><br />
+            <a
+              id="postToX"
+              class="x-post-button"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              結果をXにポストする
+            </a>
+          </div>
+        </section>
+
+    <footer>
+      <p class="footer-text">
+        © 2025 Iwasaki Yuka All rights reserved.
+      </p>
+
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>
