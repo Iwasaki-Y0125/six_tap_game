@@ -1,270 +1,276 @@
 /** ベーススタイル */
 html {
-    font-size: 100%; /* 通常16px相当 */
-    margin: 0px; /* ブラウザのデフォルトマージンをリセット */
-    touch-action: manipulation;
-  }
+  font-size: 100%; /* 通常16px相当 */
+  margin: 0px; /* ブラウザのデフォルトマージンをリセット */
+  touch-action: manipulation; /* タッチ操作の最適化 */
+}
 /** フォント全体設定 */
 /* タイトル用フォント */
 @font-face {
-    font-family: "misaki_gothic_2nd";
-    src: url("fonts/misaki_gothic_2nd.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
+  font-family: "misaki_gothic_2nd";
+  src: url("/fonts/misaki_gothic_2nd.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  /* 本文用フォント */
-  @font-face {
-    font-family: "JF-Dot-k12x10";
-    src: url("fonts/JF-Dot-k12x10.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
+/* 本文用フォント */
+@font-face {
+  font-family: "JF-Dot-k12x10";
+  src: url("/fonts/JF-Dot-k12x10.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  /** ライト⇔ダークモード　カラー設定 */
-  /** ユーザー設定に合わせる用 */
+/** ライト⇔ダークモード　カラー設定 */
+/** ユーザー設定に合わせる用 */
+:root {
+  --bg: #e0e0e0; /*全体の背景色*/
+  --fg: #4d4c4b; /*全体の文字色*/
+  --nb: #f7f6f2; /*ナビゲーションの背景*/
+  --a: #0077cc; /*リンク：通常時*/
+  --av: #0000ff; /*リンク：訪問済み*/
+  --ah: #ff0000; /*リンク：ホバー時*/
+  --lb: #2d2f41; /*LBボタン背景*/
+  --lf: #fff; /*LBボタン文字*/
+  --lh: var(--ah); /*ボタン背景:ホバー時*/
+  --dl: #423a3a; /*準備中リンク*/
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg: #e0e0e0; /*全体の背景色*/
-    --fg: #4d4c4b; /*全体の文字色*/
-    --nb: #f7f6f2; /*ナビゲーションの背景*/
-    --a: #0077cc; /*リンク：通常時*/
-    --av: #0000ff; /*リンク：訪問済み*/
+    /*ユーザーがダークモードを使っている*/
+    --bg: #2d2f41; /*全体の背景色*/
+    --fg: #fff; /*全体の文字色*/
+    --nb: #747796; /*ナビゲーションの背景*/
+    --a: #66bfff; /*リンク：通常時*/
+    --av: #00ffff; /*リンク：訪問済み*/
     --ah: #ff0000; /*リンク：ホバー時*/
-    --lb: #2d2f41; /*LBボタン背景*/
-    --lf: #fff; /*LBボタン文字*/
+    --lb: #f0f0f0; /*ボタン背景*/
+    --lf: #000; /*ボタン文字*/
     --lh: var(--ah); /*ボタン背景:ホバー時*/
-    --dl: #423a3a; /*準備中リンク*/
-    }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /*ユーザーがダークモードを使っている*/
-      --bg: #2d2f41; /*全体の背景色*/
-      --fg: #fff; /*全体の文字色*/
-      --nb: #747796; /*ナビゲーションの背景*/
-      --a: #66bfff; /*リンク：通常時*/
-      --av: #00ffff; /*リンク：訪問済み*/
-      --ah: #ff0000; /*リンク：ホバー時*/
-      --lb: #f0f0f0; /*ボタン背景*/
-      --lf: #000; /*ボタン文字*/
-      --lh: var(--ah); /*ボタン背景:ホバー時*/
-      --dl: #1a4058; /*準備中リンク*/
-      }
-    }
+    --dl: #1a4058; /*準備中リンク*/
+  }
+}
 
 /** 全体設定 */
 body {
-    font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-    line-height: 1.5;
-    margin: 0;
-    background-color: var(--bg);
-    color: var(--fg);
-  }
+  height: 100vh;
+  margin: 0;
+
+  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  line-height: 1.5;
+
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.rendaBlock {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+  height: 550px;
+
+  background-color: var(--nb); /*背景色 */
+  border: 10px double rgb(167, 167, 167);
+  border-radius: 10px; /* 枠線の丸み*/
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /** ライトモードボタン */
 #L-Bbutton {
-    font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-    width: 100px; /* 横幅*/
-    height: 30px; /*縦幅*/
+  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  width: 100px; /* 横幅*/
+  height: 30px; /*縦幅*/
 
-    background-color: var(--lb); /* 背景色 */
-    color: var(--lf);
+  background-color: var(--lb); /* 背景色 */
+  color: var(--lf);
 
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 20px; /* 枠線の丸み*/
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px; /* 枠線の丸み*/
 
-    position: absolute;
-    top: -10%; /* 中段よりやや上に調整 */
-    right: 0%; /* 右端に近づける */
-    box-shadow: 0 5px 0 #acabab;
-    transition: all 0.3s;
-  }
+  box-shadow: 0 5px 0 #acabab;
+  transition: all 0.2s;
 
-  #L-Bbutton:hover {
-    transform: translate(0, 3px);
-    box-shadow: 0 2px 0 #acabab;
-  }
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#L-Bbutton:hover {
+  transform: translate(0, 3px);
+  box-shadow: 0 2px 0 #acabab;
+}
 
 /**　文字の設定 */
 /* リンク文字 */
 a {
-    color: var(--a);
-  }
-  a:visited {
-    color: var(--av);
-  }
-  a:hover,
-  a:visited:hover {
-    color: var(--ah);
-  }
+  color: var(--a);
+}
+a:visited {
+  color: var(--av);
+}
+a:hover,
+a:visited:hover {
+  color: var(--ah);
+}
 
-  /** フッター設定 */
-  .footer-text {
-    display: block;
-    text-align: center;
-    margin: 2rem;
-    padding: 2rem;
-  }
+/** フッター設定 */
+.footer-text {
+  display: block;
+  text-align: center;
+  margin: 2rem;
+  padding: 2rem;
+}
 
 /**ゲームの画面　*/
 /*画面の表示⇔非表示 */
 .screen {
-    display: flex;
-    justify-content: center; /* 横方向中央 */
-    align-items: center; /* 縦方向中央 */
-    padding: 3rem 0;
+  display: flex;
+  justify-content: center; /* 横方向中央 */
+  align-items: center; /* 縦方向中央 */
+  padding: 5rem 0;
+}
+.hidden {
+  display: none;
+}
+
+#rendatitle {
+  font-size: clamp(1.5rem, 13vw, 4rem);
+  /* clamp(最小値, 推奨値（可変）, 最大値) */
+  font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  transform: translateY(-3rem);
+}
+
+#startBtn {
+  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  width: 180px; /* 横幅*/
+  height: 100px; /*縦幅*/
+
+  background-color: var(--lb); /* 背景色 */
+  color: var(--lf);
+
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px; /* 枠線の丸み*/
+  box-shadow: 0 7px 0 #acabab;
+  transition: all 0.2s;
+}
+
+#startBtn:hover {
+  transform: translate(0, 7px);
+  box-shadow: 0 2px 0 #acabab;
+}
+
+#readyMessage {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin-top: 2rem;
+}
+
+#readyTime {
+  font-size: clamp(2rem, 18vw, 6rem);
+}
+
+#rendaBtn {
+  font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  font-size: clamp(2rem, 15vw, 3.5rem);
+  width: 300px; /* 横幅*/
+  height: 150px; /*縦幅*/
+
+  background-color: var(--lb); /* 背景色 */
+  color: var(--lf);
+
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px; /* 枠線の丸み*/
+  box-shadow: 0 8px 0 #acabab;
+
+  text-align: left;
+  padding-left: 4rem;
+  transform: translateY(-3rem);
+}
+
+#rendaBtn:active {
+  transform: translate(0, -2.5rem);
+  box-shadow: 0 2px 0 #acabab;
+}
+
+#rendaEnd p {
+  font-size: clamp(2rem, 10vw, 6rem);
+  padding-left: 2rem;
+}
+
+#playTime,
+#playScore {
+  transform: translateY(-4rem);
+}
+
+#playTime,
+#playScore,
+#resultScore,
+#rank {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+.playScore {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+#rankImg {
+  width: 150px; /* 横幅*/
+  height: auto; /*縦幅*/
+}
+
+#rankMessage {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+#retryBtn {
+  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  width: clamp(180px, 30vw, 250px);
+  height: clamp(70px, 8vw, 80px);
+  padding: 0.8rem;
+
+  background-color: var(--lb);
+  color: var(--lf);
+
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0 5px 0 #acabab;
+  transition: all 0.2s;
+}
+
+#retryBtn:hover {
+  transform: translate(0, 3px);
+  box-shadow: 0 2px 0 #acabab;
+}
+
+#postToX {
+  font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
+}
+
+#resultScore,
+#rank,
+#rankMessage,
+#retryBtn {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/** スマホ時の縦並び切り替え */
+@media screen and (max-width: 600px) {
+  #L-Bbutton {
+    position: static;
+    display: block;
+    width: 50%;
+    max-width: 160px;
+    margin: 1rem auto 0 auto;
   }
-  .hidden {
-    display: none;
-  }
-
-  .rendaBlock {
-    width: 100%;
-    max-width: 500px;
-    height: 550px;
-
-    background-color: var(--nb); /*背景色 */
-    border: 10px double rgb(167, 167, 167);
-    border-radius: 10px; /* 枠線の丸み*/
-    padding: 1rem;
-    box-sizing: border-box;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #rendatitle {
-    font-size: clamp(1.5rem, 13vw, 4rem);
-    /* clamp(最小値, 推奨値（可変）, 最大値) */
-    font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
-    transform: translateY(-3rem);
-  }
-
-  #startBtn {
-    font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    width: 180px; /* 横幅*/
-    height: 100px; /*縦幅*/
-
-    background-color: var(--lb); /* 背景色 */
-    color: var(--lf);
-
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 20px; /* 枠線の丸み*/
-    box-shadow: 0 7px 0 #acabab;
-    transition: all 0.2s;
-  }
-
-  #startBtn:hover {
-    transform: translate(0, 7px);
-    box-shadow: 0 2px 0 #acabab;
-  }
-
-  #readyMessage {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    margin-top: 2rem;
-  }
-
-  #readyTime {
-    font-size: clamp(2rem, 18vw, 6rem);
-  }
-
-  #rendaBtn {
-    font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
-    font-size: clamp(2rem, 15vw, 3.5rem);
-    width: 300px; /* 横幅*/
-    height: 150px; /*縦幅*/
-
-    background-color: var(--lb); /* 背景色 */
-    color: var(--lf);
-
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 20px; /* 枠線の丸み*/
-    box-shadow: 0 8px 0 #acabab;
-
-    text-align: left;
-    padding-left: 4rem;
-    transform: translateY(-3rem);
-  }
-
-  #rendaBtn:active {
-    transform: translate(0, -2.5rem);
-    box-shadow: 0 2px 0 #acabab;
-  }
-
-  #rendaEnd p{
-    font-size: clamp(2rem, 10vw, 6rem);
-    padding-left: 2rem;
-  }
-
-  #playTime,
-  #playScore {
-    transform: translateY(-4rem);
-  }
-
-  #playTime,
-  #playScore,
-  #resultScore,
-  #rank {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  }
-
-  .playScore {
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  }
-
-  #rankImg {
-    width: 150px; /* 横幅*/
-    height: auto; /*縦幅*/
-  }
-
-  #rankMessage {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-  }
-
-  #retryBtn {
-    font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
-    width: clamp(180px, 30vw, 250px);
-    height: clamp(70px, 8vw, 80px);
-    padding: 0.8rem;
-
-    background-color: var(--lb);
-    color: var(--lf);
-
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 20px;
-    box-shadow: 0 5px 0 #acabab;
-    transition: all 0.2s;
-  }
-
-  #retryBtn:hover {
-    transform: translate(0, 3px);
-    box-shadow: 0 2px 0 #acabab;
-  }
-
-  #postToX {
-    font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
-  }
-
-  #resultScore,
-  #rank,
-  #rankMessage,
-  #retryBtn {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /** スマホ時の縦並び切り替え */
-  @media screen and (max-width: 600px) {
-    #L-Bbutton {
-      position: static;
-      display: block;
-      width: 50%;
-      max-width: 160px;
-      margin: 1rem auto 0 auto;
-    }
-  }
+}
