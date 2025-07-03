@@ -1,6 +1,6 @@
 //todo 3.ダークモードのON/OFF切替ボタン
-//1.HTMLでボタンを設置
-//2.ボタンの要素を取得
+// 1.HTMLでボタンを設置
+// 2.ボタンの要素を取得
 const Lbtn = document.getElementById("L-Bbutton");
 
 // saveTheme = ローカルストレージに保存されたテーマ（文字列）

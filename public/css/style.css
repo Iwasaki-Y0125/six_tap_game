@@ -1,11 +1,11 @@
 /** ベーススタイル */
 html {
-  font-size: 100%; /* 通常16px相当 */
-  margin: 0px; /* ブラウザのデフォルトマージンをリセット */
+  font-size: 100%;
+  margin: 0px;
   touch-action: manipulation; /* タッチ操作の最適化 */
 }
 /** フォント全体設定 */
-/* タイトル用フォント */
+/** タイトル用フォント */
 @font-face {
   font-family: "misaki_gothic_2nd";
   src: url("/fonts/misaki_gothic_2nd.ttf") format("truetype");
@@ -13,7 +13,7 @@ html {
   font-style: normal;
 }
 
-/* 本文用フォント */
+/** 本文用フォント */
 @font-face {
   font-family: "JF-Dot-k12x10";
   src: url("/fonts/JF-Dot-k12x10.ttf") format("truetype");
@@ -52,6 +52,73 @@ html {
   }
 }
 
+/** JS用　ボタン切替時の色切替 */
+body.light-mode {
+  --bg: #e0e0e0; /*全体の背景色*/
+  --fg: #4d4c4b; /*全体の文字色*/
+  --nb: #ffffff; /*ナビゲーションの背景*/
+  --a: #0077cc; /*リンク：通常時*/
+  --av: #0000ff; /*リンク：訪問済み*/
+  --ah: #ff0000; /*リンク：ホバー時*/
+  --lb: #2d2f41; /*LBボタン背景*/
+  --lf: #fff; /*LBボタン文字*/
+  --lh: var(--ah); /*ボタン背景:ホバー時*/
+  --dl: #423a3a; /*準備中リンク*/
+}
+
+body.dark-mode {
+  /*ユーザーがダークモードを使っている*/
+  --bg: #2d2f41; /*全体の背景色*/
+  --fg: #fff; /*全体の文字色*/
+  --nb: #747796; /*ナビゲーションの背景*/
+  --a: #66bfff; /*リンク：通常時*/
+  --av: #00ffff; /*リンク：訪問済み*/
+  --ah: #ff0000; /*リンク：ホバー時*/
+  --lb: #f0f0f0; /*LBボタン背景*/
+  --lf: #000; /*LBボタン文字*/
+  --lh: var(--ah); /*ボタン背景:ホバー時*/
+  --dl: #1a4058; /*準備中リンク*/
+}
+
+/** ライトモードボタン */
+#L-Bbutton {
+  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  width: 150px;
+  height: 40px;
+
+  background-color: var(--lb);
+  color: var(--lf);
+
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px; /* 枠線の丸み*/
+
+  box-shadow: 0 5px 0 #acabab;
+  transition: all 0.2s;
+
+  position: absolute;
+  top: -13%; /* 中段よりやや上に調整 */
+  right: -2%; /* 右端に近づける */
+}
+
+#L-Bbutton:hover {
+  transform: translate(0, 3px);
+  box-shadow: 0 2px 0 #acabab;
+}
+
+/**　文字の設定 */
+/* リンク文字 */
+a {
+  color: var(--a);
+}
+a:visited {
+  color: var(--av);
+}
+a:hover,
+a:visited:hover {
+  color: var(--ah);
+}
+
+
 /** 全体設定 */
 body {
   height: 100vh;
@@ -84,43 +151,6 @@ body {
   align-items: center;
 }
 
-/** ライトモードボタン */
-#L-Bbutton {
-  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-  width: 100px; /* 横幅*/
-  height: 30px; /*縦幅*/
-
-  background-color: var(--lb); /* 背景色 */
-  color: var(--lf);
-
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 20px; /* 枠線の丸み*/
-
-  box-shadow: 0 5px 0 #acabab;
-  transition: all 0.2s;
-
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-#L-Bbutton:hover {
-  transform: translate(0, 3px);
-  box-shadow: 0 2px 0 #acabab;
-}
-
-/**　文字の設定 */
-/* リンク文字 */
-a {
-  color: var(--a);
-}
-a:visited {
-  color: var(--av);
-}
-a:hover,
-a:visited:hover {
-  color: var(--ah);
-}
 
 /** フッター設定 */
 .footer-text {
