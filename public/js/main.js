@@ -1,3 +1,15 @@
+//todo 1.画面の高さをCSS変数に設定する
+// 画面の高さをCSS変数 --vh に設定する
+function setVh() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// 初回実行＋画面サイズ変更時にも実行
+window.addEventListener('DOMContentLoaded', setVh);
+window.addEventListener('resize', setVh);
+
+
 //todo 3.ダークモードのON/OFF切替ボタン
 // 1.HTMLでボタンを設置
 // 2.ボタンの要素を取得
@@ -36,8 +48,6 @@ Lbtn.addEventListener("click", () => {
     localStorage.setItem("theme", "dark-mode"); // ← ローカルストレージに保存
   }
 });
-
-
 
 //todo 6.ミニゲーム（連打力チェッカー）
 

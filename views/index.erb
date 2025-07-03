@@ -9,9 +9,10 @@
 
   <body>
 
+
         <section id="rendaTop" class="screen">
           <div class="rendaBlock">
-              <button id="L-Bbutton">ダークモード</button>
+            <button id="L-Bbutton">ダークモード</button>
             <p id="rendatitle">六秒連打</p>
             <button id="startBtn">スタート</button>
           </div>
@@ -19,6 +20,7 @@
 
         <section id="rendaReady" class="hidden">
           <div class="rendaBlock">
+            <button id="L-Bbutton">ダークモード</button>
             <p id="readyMessage">連打開始まで</p>
             <p id="readyTime">3</p>
           </div>
@@ -26,6 +28,7 @@
 
         <section id="rendaPlay" class="hidden">
           <div class="rendaBlock">
+            <button id="L-Bbutton">ダークモード</button>
             <p id="playTime">あと 6 秒</p>
             <p id="playScore">０連打</p>
             <button id="rendaBtn">連打！</button>
@@ -34,12 +37,14 @@
 
         <section id="rendaEnd" class="hidden">
           <div class="rendaBlock">
+            <button id="L-Bbutton">ダークモード</button>
             <p>終了!</p>
           </div>
         </section>
 
         <section id="rendaResult" class="hidden">
           <div class="rendaBlock">
+            <button id="L-Bbutton">ダークモード</button>
             <p>あなたの連打回数は</p>
             <p id="resultScore">0連打</p>
             <img id="rankImg" src="image/E.GIF" alt="結果" />
@@ -47,6 +52,7 @@
             <p id="rankMessage">起きただけでエラい</p>
 
             <button id="retryBtn">リトライ</button><br /><br />
+            <button id="rankingBtn">ランキング</button><br /><br />
             <a
               id="postToX"
               class="x-post-button"
@@ -58,6 +64,17 @@
             </a>
           </div>
         </section>
+
+        <section id="rendaRanking" class="hidden">
+          <div class="rendaBlock">
+            <button id="L-Bbutton">ダークモード</button>
+            <p id="rankingTitle">ランキング</p>
+            <div id="rankingList">
+              <ul id="rankingUl">
+                <!-- ランキングのリストがここに挿入されます -->
+              </ul>
+            </div>
+            <button id="rankingBackBtn">結果に戻る</button>
 
     <footer>
       <p class="footer-text">

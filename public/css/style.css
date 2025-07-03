@@ -1,10 +1,22 @@
-/** ベーススタイル */
-html {
-  font-size: 100%;
-  margin: 0px;
-  touch-action: manipulation; /* タッチ操作の最適化 */
-}
 /** フォント全体設定 */
+p {
+  font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  margin: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.9;
+}
+/* リンク文字 */
+a {
+  color: var(--a);
+}
+a:visited {
+  color: var(--av);
+}
+a:hover,
+a:visited:hover {
+  color: var(--ah);
+}
+
 /** タイトル用フォント */
 @font-face {
   font-family: "misaki_gothic_2nd";
@@ -24,6 +36,7 @@ html {
 /** ライト⇔ダークモード　カラー設定 */
 /** ユーザー設定に合わせる用 */
 :root {
+  --vh: 1vh; /* フォールバック：仮の値 */
   --bg: #e0e0e0; /*全体の背景色*/
   --fg: #4d4c4b; /*全体の文字色*/
   --nb: #f7f6f2; /*ナビゲーションの背景*/
@@ -39,6 +52,7 @@ html {
 @media (prefers-color-scheme: dark) {
   :root {
     /*ユーザーがダークモードを使っている*/
+    --vh: 1vh; /* フォールバック：仮の値 */
     --bg: #2d2f41; /*全体の背景色*/
     --fg: #fff; /*全体の文字色*/
     --nb: #747796; /*ナビゲーションの背景*/
@@ -54,6 +68,7 @@ html {
 
 /** JS用　ボタン切替時の色切替 */
 body.light-mode {
+  --vh: 1vh; /* フォールバック：仮の値 */
   --bg: #e0e0e0; /*全体の背景色*/
   --fg: #4d4c4b; /*全体の文字色*/
   --nb: #ffffff; /*ナビゲーションの背景*/
@@ -68,6 +83,7 @@ body.light-mode {
 
 body.dark-mode {
   /*ユーザーがダークモードを使っている*/
+  --vh: 1vh; /* フォールバック：仮の値 */
   --bg: #2d2f41; /*全体の背景色*/
   --fg: #fff; /*全体の文字色*/
   --nb: #747796; /*ナビゲーションの背景*/
@@ -80,55 +96,28 @@ body.dark-mode {
   --dl: #1a4058; /*準備中リンク*/
 }
 
-/** ライトモードボタン */
-#L-Bbutton {
-  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-  width: 150px;
-  height: 40px;
-
-  background-color: var(--lb);
-  color: var(--lf);
-
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 20px; /* 枠線の丸み*/
-
-  box-shadow: 0 5px 0 #acabab;
-  transition: all 0.2s;
-
-  position: absolute;
-  top: -13%; /* 中段よりやや上に調整 */
-  right: -2%; /* 右端に近づける */
-}
-
-#L-Bbutton:hover {
-  transform: translate(0, 3px);
-  box-shadow: 0 2px 0 #acabab;
-}
-
-/**　文字の設定 */
-/* リンク文字 */
-a {
-  color: var(--a);
-}
-a:visited {
-  color: var(--av);
-}
-a:hover,
-a:visited:hover {
-  color: var(--ah);
-}
-
-
 /** 全体設定 */
-body {
-  height: 100vh;
+/** ベーススタイル */
+html {
+  font-size: 100%;
   margin: 0;
+  padding: 0;
 
+  touch-action: manipulation; /* タッチ操作の最適化 */
+  overflow: hidden;
+
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
   font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-  line-height: 1.5;
 
   background-color: var(--bg);
   color: var(--fg);
+
+  margin: 0;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .rendaBlock {
@@ -136,7 +125,7 @@ body {
 
   width: 100%;
   max-width: 500px;
-  height: 550px;
+  height: 75vh;
 
   background-color: var(--nb); /*背景色 */
   border: 10px double rgb(167, 167, 167);
@@ -152,13 +141,39 @@ body {
 }
 
 
+/** ライトモードボタン */
+#L-Bbutton {
+  font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
+  width: 130px;
+  height: 35px;
+
+  background-color: var(--lb);
+  color: var(--lf);
+
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px; /* 枠線の丸み*/
+
+  box-shadow: 0 5px 0 #acabab;
+  transition: all 0.2s;
+
+  position: absolute;
+  top: -10%;
+  right: 0%;
+}
+
+#L-Bbutton:hover {
+  transform: translate(0, 3px);
+  box-shadow: 0 2px 0 #acabab;
+}
+
 /** フッター設定 */
 .footer-text {
+  font-family: "JF-Dot-k12x10", "游ゴシック", sans-serif;
   display: block;
   text-align: center;
-  margin: 2rem;
-  padding: 2rem;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
+
 
 /**ゲームの画面　*/
 /*画面の表示⇔非表示 */
@@ -181,7 +196,7 @@ body {
 
 #startBtn {
   font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
   width: 180px; /* 横幅*/
   height: 100px; /*縦幅*/
 
@@ -261,7 +276,7 @@ body {
   font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
 
-#retryBtn {
+#retryBtn,#rankingBtn,#rankingBackBtn {
   font-family: "misaki_gothic_2nd", "JF-Dot-k12x10", "游ゴシック", sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.6rem);
   width: clamp(180px, 30vw, 250px);
@@ -294,13 +309,8 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/** スマホ時の縦並び切り替え */
-@media screen and (max-width: 600px) {
-  #L-Bbutton {
-    position: static;
-    display: block;
-    width: 50%;
-    max-width: 160px;
-    margin: 1rem auto 0 auto;
+/* @media screen and (max-height: 667px) {
+  .rendaBlock {
+    height: 70vh;
   }
-}
+} */
