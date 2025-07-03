@@ -11,5 +11,10 @@ source "https://rubygems.org"
 
 gem 'sinatra'       # SinatraというWebフレームワーク
 gem 'sqlite3'       # SQLiteデータベース操作用
+gem 'puma'
+gem 'rack'
+
 # gem 'thin'       # 軽量なWebサーバー（任意）
 # gem 'rerun'      # 開発中の自動リロード用（任意）
+
+gem "rackup", "~> 2.2"
